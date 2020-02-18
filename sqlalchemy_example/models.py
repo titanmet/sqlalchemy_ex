@@ -1,6 +1,6 @@
 from datetime import date
 
-from sqlalchemy_work.app import db
+from sqlalchemy_example.app import db
 
 
 class User(db.Model):

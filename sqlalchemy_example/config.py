@@ -1,5 +1,5 @@
 DEBUG = True
-SECRET_KEY = 'asdfsdfssf asf dsgsdg'
+SECRET_KEY = 'asf dsgsdg'
 
 # Database settings:
 SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'

@@ -1,8 +1,7 @@
 from flask import Flask, request, render_template, flash
 from flask_sqlalchemy import SQLAlchemy
 
-import sqlalchemy_work.config as config
-
+import sqlalchemy_example.config as config
 
 app = Flask(__name__, template_folder='templates')
 app.config.from_object(config)
@@ -13,8 +12,8 @@ db = SQLAlchemy(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    from sqlalchemy_work.model import Post, User
-    from sqlalchemy_work.forms import PostForm
+    from sqlalchemy_example.models import Post, User
+    from sqlalchemy_example.forms import PostForm
 
     if request.method == 'POST':
         print(request.form)
@@ -31,8 +30,8 @@ def index():
             flash(str(form.errors))
 
     posts = Post.query.all()
-    user = User.query.filter(id = posts[0].user_id)
-    user = posts[0].user
+    # user = User.query.filter(id = posts[0].user_id)
+    # user = posts[0].user
 
     for post in posts:
         user_id = post.user_id
@@ -47,14 +46,14 @@ def index():
 def populate_db():
     print('Creating default user')
     # Creating new ones:
-    ivan = User(username='Ivan', email='p@p.com')
+    x = User(username='X', email='p@p.com')
 
-    db.session.add(ivan)
+    db.session.add(x)
     db.session.commit()  # note
 
 
 if __name__ == '__main__':
-    from sqlalchemy_work.model import *
+    from sqlalchemy_example.models import *
     db.create_all()
 
     if User.query.count() == 0:

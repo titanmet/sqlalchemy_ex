@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import fields, validators
 from wtforms_alchemy import ModelForm
 
-from sqlalchemy_work.model import Post, User
+from sqlalchemy_example.models import Post, User
 
 
 # class __PostForm(FlaskForm):  # This looks ugly!
